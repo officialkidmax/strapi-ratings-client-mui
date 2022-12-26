@@ -3,6 +3,8 @@ import React, { useContext, useState, useEffect } from "react";
 // @mui
 import { styled } from '@mui/material/styles';
 import { Grid, Rating, Button, Typography, LinearProgress, Stack, Link } from '@mui/material';
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 
 import Review from "../Review";
 import ReviewsContext from "../ReviewsProvider";
@@ -77,7 +79,11 @@ const Reviews = () => {
                 <Typography variant="h2" gutterBottom sx={{ color: 'error.main' }}>
                   {averageScore}/5
                 </Typography>
-                <Rating readOnly value={averageScore} precision={0.1} />
+                <Rating
+                  icon={<StarRoundedIcon fontSize="inherit" />}
+                  emptyIcon={<StarBorderRoundedIcon fontSize="inherit" />} 
+                  readOnly value={averageScore} precision={0.5} 
+                />
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   ({reviewsCount}
                   &nbsp;review{reviewsCount === 1 ? "" : "s"})
@@ -100,7 +106,7 @@ const Reviews = () => {
               }
             </div>
           : <p className="small fs-6">There are no reviews</p>
-      };
+      }
     </div>
   );
 };

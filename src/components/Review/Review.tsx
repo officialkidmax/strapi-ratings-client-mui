@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 // @mui
 import { Rating } from "@mui/material";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 
 import ReviewsContext, { IReview } from "../ReviewsProvider";
 import { ISOToFull } from "../../lib";
@@ -22,7 +24,11 @@ const Review = ({ data }: ReviewProps) => {
             {"\t"} on {ISOToFull(data.createdAt)}
           </p>
         </div>
-        <Rating readOnly value={data.score} precision={0.1} />
+        <Rating
+          icon={<StarRoundedIcon fontSize="inherit" />}
+          emptyIcon={<StarBorderRoundedIcon fontSize="inherit" />}
+          readOnly value={data.score} precision={0.1}
+        />
       </div>
       {
         data.comment && (

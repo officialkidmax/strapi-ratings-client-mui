@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 // @mui
 import { Rating } from "@mui/material";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 
 import ReviewsContext from "../ReviewsProvider";
 
@@ -50,7 +52,11 @@ const ReviewForm = (props: ReviewFormProps) => {
           <div>
             <p className="fw-bold small mb-1">Your score: {score}/5</p>
           </div>
-          <Rating value={score} precision={0.1} />
+          <Rating
+            icon={<StarRoundedIcon fontSize="inherit" />}
+            emptyIcon={<StarBorderRoundedIcon fontSize="inherit" />}
+            value={score} precision={0.1} 
+          />
         </div>
         <div className="d-flex flex-column mb-1">
           <label>

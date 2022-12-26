@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // @mui
 import { Rating } from "@mui/material";
+import StarRoundedIcon from '@mui/icons-material/StarRounded';
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
 
 interface IStats {
   averageScore: number;
@@ -42,7 +44,11 @@ const ReviewStats = (props: ReviewStatsProps) => {
   return (
     <div className="d-flex">
       <div>
-        <Rating readOnly value={stats.averageScore} precision={0.1} />
+        <Rating
+          icon={<StarRoundedIcon fontSize="inherit" />}
+          emptyIcon={<StarBorderRoundedIcon fontSize="inherit" />}
+          readOnly value={stats.averageScore} precision={0.1}
+        />
       </div>
       <p className="ms-2 mb-0 d-flex align-items-end" style={{margin: 0}}>
         {
